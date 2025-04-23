@@ -1,0 +1,4 @@
+repository "no_pact_assigment/no_pact_assigment@18968217125251@cloud"
+  path "/"
+    br "/main"
+    co "/main"
