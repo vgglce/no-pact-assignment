@@ -120,6 +120,7 @@
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
+-define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER
 -define:CSHARP_7_OR_LATER
@@ -397,6 +398,7 @@
 -analyzer:"/Applications/Unity/Hub/Editor/6000.0.32f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/AttackController.cs"
 "Assets/Scripts/BaseUnit.cs"
+"Assets/Scripts/HeavyTank.cs"
 "Assets/Scripts/MovementController.cs"
 "Assets/Scripts/StrikerBike.cs"
 "Assets/Scripts/Target.cs"
