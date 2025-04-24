@@ -12,7 +12,10 @@ public class MovementController : MonoBehaviour
         targetPosition = position;
         isMoving = true;
     }
-
+    public void Stop()
+    {
+        isMoving = false;
+    }
     private void Update()
     {
         if (!isMoving) return;
@@ -20,7 +23,6 @@ public class MovementController : MonoBehaviour
         Vector3 direction = (targetPosition - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
 
-        // Hedefe çok yaklaştıysa dur
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             isMoving = false;

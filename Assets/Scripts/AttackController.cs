@@ -18,10 +18,25 @@ public class AttackController : MonoBehaviour
     {
         if (currentTarget == null || currentTarget.IsDead()) return;
 
-        float distance = Vector3.Distance(transform.position, currentTarget.transform.position);
+      
+        Vector3 myPos = new Vector3(transform.position.x, 0f, transform.position.z);
+        Vector3 targetPos = new Vector3(currentTarget.transform.position.x, 0f, currentTarget.transform.position.z);
+        float distance = Vector3.Distance(myPos, targetPos);
+
+  
+        Vector3 lookDirection = currentTarget.transform.position - transform.position;
+        lookDirection.y = 0f;
+        if (lookDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
 
         if (distance <= range)
         {
+         
+            GetComponent<MovementController>().Stop();
+
             if (Time.time - lastShotTime >= fireRate)
             {
                 currentTarget.TakeDamage(damage);
@@ -30,6 +45,7 @@ public class AttackController : MonoBehaviour
         }
         else
         {
+     
             GetComponent<MovementController>().MoveTo(currentTarget.transform.position);
         }
     }
